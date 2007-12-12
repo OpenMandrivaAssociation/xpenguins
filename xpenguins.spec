@@ -15,7 +15,7 @@ Group: Toys
 BuildRoot: %{_tmppath}/%{name}-buildroot
 URL: http://xpenguins.seul.org/
 BuildRequires: xpm-devel
-BuildRequires: XFree86-devel
+BuildRequires: X11-devel
 
 %description
 XPenguins animates a friendly family of penguins in your root window.
