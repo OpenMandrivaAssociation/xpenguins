@@ -36,7 +36,7 @@ with this package are "Penguins", "Classic Penguins" and "Turtles".
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
-mkdir -p  %buildroot{%{_menudir},%{_iconsdir},%{_miconsdir},%{_liconsdir}}
+mkdir -p  %buildroot{%{_datadir}/applications,%{_iconsdir},%{_miconsdir},%{_liconsdir}}
 cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
 [Desktop Entry]
 Type=Application
