@@ -37,14 +37,14 @@ with this package are "Penguins", "Classic Penguins" and "Turtles".
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 mkdir -p  %buildroot{%{_menudir},%{_iconsdir},%{_miconsdir},%{_liconsdir}}
-cat << EOF > %buildroot%{_menudir}/%{name}
-?package(%{name}): \
-	command="%{_bindir}/%{name}" \
-	icon="%{name}.png" \
-	needs="x11" \
-	section="Amusement/Toys" \
-	title="Xpenguins" \
-	longtitle="Display penguins running on your desktop."
+cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
+[Desktop Entry]
+Type=Application
+Exec=%{_bindir}/%{name}
+Icon=%{name}
+Categories=Amusement;
+Name=Xpenguins
+Comment=Display penguins running on your desktop.
 EOF
 
 bzip2 -dc %{SOURCE1} > %buildroot%{_iconsdir}/%{name}.png
@@ -67,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %dir %{_datadir}/%{name}/
 %{_datadir}/%{name}/themes
-%{_menudir}/%{name}
+%{_datadir}/applications/mandriva-%{name}.desktop
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
