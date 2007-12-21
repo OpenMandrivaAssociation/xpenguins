@@ -12,6 +12,7 @@ Source1: %name-32x32.png.bz2
 Source2: %name-16x16.png.bz2
 Source3: %name-48x48.png.bz2
 Group: Toys
+BuildRoot: %{_tmppath}/%{name}-buildroot
 URL: http://xpenguins.seul.org/
 BuildRequires: xpm-devel
 BuildRequires: X11-devel
