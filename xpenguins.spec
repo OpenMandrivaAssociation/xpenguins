@@ -1,6 +1,6 @@
 %define name xpenguins
 %define version 2.2
-%define release %mkrel 6
+%define release %mkrel 8
 
 Summary: Cute little penguins that walk along the tops of your windows
 Name: %{name}
