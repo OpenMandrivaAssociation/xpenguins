@@ -11,11 +11,13 @@ Source0: %{name}-%{version}.tar.bz2
 Source1: %name-32x32.png.bz2
 Source2: %name-16x16.png.bz2
 Source3: %name-48x48.png.bz2
+Patch0: xpenguins-2.2-fix-str-fmt.patch
 Group: Toys
 BuildRoot: %{_tmppath}/%{name}-buildroot
 URL: http://xpenguins.seul.org/
 BuildRequires: xpm-devel
-BuildRequires: X11-devel
+BuildRequires: libx11-devel
+BuildRequires: libxext-devel
 
 %description
 XPenguins animates a friendly family of penguins in your root window.
@@ -27,11 +29,12 @@ with this package are "Penguins", "Classic Penguins" and "Turtles".
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 # Note: when we compile the program it needs to know where the 
 # data will be when finally installed.
-%configure
+%configure2_5x
 %make
 
 %install
