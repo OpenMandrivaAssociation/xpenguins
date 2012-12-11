@@ -1,6 +1,6 @@
 %define name xpenguins
 %define version 2.2
-%define release %mkrel 11
+%define release 12
 
 Summary: Cute little penguins that walk along the tops of your windows
 Name: %{name}
@@ -13,11 +13,11 @@ Source2: %name-16x16.png.bz2
 Source3: %name-48x48.png.bz2
 Patch0: xpenguins-2.2-fix-str-fmt.patch
 Group: Toys
-BuildRoot: %{_tmppath}/%{name}-buildroot
 URL: http://xpenguins.seul.org/
 BuildRequires: xpm-devel
-BuildRequires: libx11-devel
-BuildRequires: libxext-devel
+BuildRequires: pkgconfig(x11)
+BuildRequires: pkgconfig(xext)
+BuildRequires: pkgconfig(xt)
 
 %description
 XPenguins animates a friendly family of penguins in your root window.
@@ -80,3 +80,80 @@ rm -rf $RPM_BUILD_ROOT
 %{_miconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 
+
+
+%changelog
+* Wed Dec 08 2010 Oden Eriksson <oeriksson@mandriva.com> 2.2-11mdv2011.0
++ Revision: 615730
+- the mass rebuild of 2010.1 packages
+
+* Sat Feb 20 2010 Funda Wang <fwang@mandriva.org> 2.2-10mdv2010.1
++ Revision: 508756
+- fix str fmt
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Mon Aug 04 2008 Thierry Vignaud <tv@mandriva.org> 2.2-9mdv2009.0
++ Revision: 262683
+- rebuild
+
+* Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 2.2-8mdv2009.0
++ Revision: 257669
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Thu Dec 20 2007 Thierry Vignaud <tv@mandriva.org> 2.2-6mdv2008.1
++ Revision: 135561
+- fix directory creation
+- auto-convert XDG menu entry
+- kill re-definition of %%buildroot on Pixel's request
+- buildrequires X11-devel instead of XFree86-devel
+- import xpenguins
+
+
+* Thu Jan 05 2006 Lenny Cartier <lenny@mandriva.com> 2.2-6mdk
+- rebuild
+
+* Fri Jul 02 2004 Lenny Cartier <lenny@mandrakesoft.com> 2.2-5mdk
+- rebuild
+
+* Sun Jun 15 2003 Götz Waschk <waschk@linux-mandrake.com> 2.2-4mdk
+- arrgh, forgot to type C-c C-r
+
+* Sat Jun 14 2003 Götz Waschk <waschk@linux-mandrake.com> 2.2-3mdk
+- add the data dir
+- add buildrequires
+- remove prefix
+
+* Mon Sep  9 2002 Arnaud Desmons <adesmons@mandrakesoft.com> 2.2-3mdk
+- added Packager
+
+* Mon Mar  4 2002 Götz Waschk <waschk@linux-mandrake.com> 2.2-2mdk
+- substitute xpm by png icons
+- fix data dir by using %%makeinstall_std macro
+
+* Tue Oct 09 2001 Lenny Cartier <lenny@mandrakesoft.com> 2.2-1mdk
+- fixed & updated by Götz Waschk <waschk@linux-mandrake.com> :
+	- fixed rpmlint warning about non-transparent icon
+	- 2.2
+
+* Fri Jun 22 2001 Etienne Faure <etienne@mandrakesoft.com> 2.1-2mdk
+- large icon
+
+* Fri Jun 22 2001 Lenny Cartier <lenny@mandrakesoft.com> 2.1-1mdk
+ 
+ - added in contribs bu Götz Waschk <waschk@linux-mandrake.com> :
+         - adapted package for Mandrake
+
+* Sat May  5 2001 Robin Hogan <R.J.Hogan@reading.ac.uk> 1.9.1-1
+- First spec file used with autoconf
+* Tue May 23 2000 Robin Hogan <R.J.Hogan@reading.ac.uk> 1.2-1
+- Use BuildRoot.
+
+# end of file
