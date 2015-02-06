@@ -1,6 +1,6 @@
 %define name xpenguins
 %define version 2.2
-%define release 12
+%define release 13
 
 Summary: Cute little penguins that walk along the tops of your windows
 Name: %{name}
