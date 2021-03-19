@@ -50,22 +50,9 @@ Name=Xpenguins
 Comment=Display penguins running on your desktop.
 EOF
 
-bzip2 -dc %{SOURCE1} > %buildroot%{_iconsdir}/%{name}.png
-bzip2 -dc %{SOURCE2} > %buildroot%{_miconsdir}/%{name}.png
-bzip2 -dc %{SOURCE3} > %buildroot%{_liconsdir}/%{name}.png
-
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%endif
+#bzip2 -dc %{SOURCE1} > %buildroot%{_iconsdir}/%{name}.png
+#bzip2 -dc %{SOURCE2} > %buildroot%{_miconsdir}/%{name}.png
+#bzip2 -dc %{SOURCE3} > %buildroot%{_liconsdir}/%{name}.png
 
 %files
 %defattr(-,root,root)
