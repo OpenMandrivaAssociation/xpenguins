@@ -1,17 +1,13 @@
-%define name xpenguins
-%define version 2.2
-%define release 13
-
 Summary: Cute little penguins that walk along the tops of your windows
-Name: %{name}
-Version: %{version}
-Release: %{release}
+Name: xpenguins
+Version: 3.2.0
+Release: 1
 license: GPL
-Source0: %{name}-%{version}.tar.bz2
+Source0: https://sourceforge.net/projects/xpenguins/files/%{name}-%{version}.tar.gz
 Source1: %name-32x32.png.bz2
 Source2: %name-16x16.png.bz2
 Source3: %name-48x48.png.bz2
-Patch0: xpenguins-2.2-fix-str-fmt.patch
+#Patch0: xpenguins-2.2-fix-str-fmt.patch
 Group: Toys
 URL: http://xpenguins.seul.org/
 BuildRequires: xpm-devel
@@ -29,7 +25,7 @@ with this package are "Penguins", "Classic Penguins" and "Turtles".
 
 %prep
 %setup -q
-%patch0 -p0
+#patch0 -p0
 
 %build
 # Note: when we compile the program it needs to know where the 
