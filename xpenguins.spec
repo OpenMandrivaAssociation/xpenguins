@@ -4,9 +4,7 @@ Version: 3.2.0
 Release: 1
 license: GPL
 Source0: https://sourceforge.net/projects/xpenguins/files/%{name}-%{version}.tar.gz
-Source1: %name-32x32.png.bz2
-Source2: %name-16x16.png.bz2
-Source3: %name-48x48.png.bz2
+
 Group: Toys
 URL: http://xpenguins.seul.org/
 BuildRequires: xpm-devel
@@ -46,10 +44,6 @@ Categories=Amusement;
 Name=Xpenguins
 Comment=Display penguins running on your desktop.
 EOF
-
-#bzip2 -dc %{SOURCE1} > %buildroot%{_iconsdir}/%{name}.png
-#bzip2 -dc %{SOURCE2} > %buildroot%{_miconsdir}/%{name}.png
-#bzip2 -dc %{SOURCE3} > %buildroot%{_liconsdir}/%{name}.png
 
 %files
 %defattr(-,root,root)
