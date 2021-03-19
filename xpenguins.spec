@@ -14,6 +14,9 @@ BuildRequires: xpm-devel
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xext)
 BuildRequires: pkgconfig(xt)
+BuildRequires: pkgconfig(gtk+-3.0)
+BuildRequires: pkgconfig(glib-2.0)
+BuildRequires: pkgconfig(gmodule-2.0)
 
 %description
 XPenguins animates a friendly family of penguins in your root window.
