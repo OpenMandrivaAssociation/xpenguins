@@ -62,9 +62,9 @@ EOF
 %dir %{_datadir}/%{name}/
 %{_datadir}/%{name}/themes
 %{_datadir}/applications/mandriva-%{name}.desktop
-%{_iconsdir}/%{name}.png
-%{_miconsdir}/%{name}.png
-%{_liconsdir}/%{name}.png
+#{_iconsdir}/%{name}.png
+#{_miconsdir}/%{name}.png
+#{_liconsdir}/%{name}.png
 
 
 
