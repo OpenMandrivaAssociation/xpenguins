@@ -1,23 +1,19 @@
-%define name xpenguins
-%define version 2.2
-%define release 13
-
 Summary: Cute little penguins that walk along the tops of your windows
-Name: %{name}
-Version: %{version}
-Release: %{release}
+Name: xpenguins
+Version: 3.2.0
+Release: 1
 license: GPL
-Source0: %{name}-%{version}.tar.bz2
-Source1: %name-32x32.png.bz2
-Source2: %name-16x16.png.bz2
-Source3: %name-48x48.png.bz2
-Patch0: xpenguins-2.2-fix-str-fmt.patch
+Source0: https://sourceforge.net/projects/xpenguins/files/%{name}-%{version}.tar.gz
+
 Group: Toys
 URL: http://xpenguins.seul.org/
 BuildRequires: xpm-devel
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xext)
 BuildRequires: pkgconfig(xt)
+BuildRequires: pkgconfig(gtk+-3.0)
+BuildRequires: pkgconfig(glib-2.0)
+BuildRequires: pkgconfig(gmodule-2.0)
 
 %description
 XPenguins animates a friendly family of penguins in your root window.
@@ -29,17 +25,15 @@ with this package are "Penguins", "Classic Penguins" and "Turtles".
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 # Note: when we compile the program it needs to know where the 
 # data will be when finally installed.
-%configure2_5x
-%make
+%configure
+%make_build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%makeinstall_std
+%make_install
 mkdir -p  %buildroot{%{_datadir}/applications,%{_iconsdir},%{_miconsdir},%{_liconsdir}}
 cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
 [Desktop Entry]
@@ -51,23 +45,6 @@ Name=Xpenguins
 Comment=Display penguins running on your desktop.
 EOF
 
-bzip2 -dc %{SOURCE1} > %buildroot%{_iconsdir}/%{name}.png
-bzip2 -dc %{SOURCE2} > %buildroot%{_miconsdir}/%{name}.png
-bzip2 -dc %{SOURCE3} > %buildroot%{_liconsdir}/%{name}.png
-
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%endif
-
 %files
 %defattr(-,root,root)
 %doc README AUTHORS COPYING ChangeLog lay-out-frames.scm
@@ -76,9 +53,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}/
 %{_datadir}/%{name}/themes
 %{_datadir}/applications/mandriva-%{name}.desktop
-%{_iconsdir}/%{name}.png
-%{_miconsdir}/%{name}.png
-%{_liconsdir}/%{name}.png
+%{_datadir}/applications/xpenguins.desktop
+%{_datadir}/pixmaps/xpenguins.xpm
 
 
 
