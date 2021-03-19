@@ -7,7 +7,6 @@ Source0: https://sourceforge.net/projects/xpenguins/files/%{name}-%{version}.tar
 Source1: %name-32x32.png.bz2
 Source2: %name-16x16.png.bz2
 Source3: %name-48x48.png.bz2
-#Patch0: xpenguins-2.2-fix-str-fmt.patch
 Group: Toys
 URL: http://xpenguins.seul.org/
 BuildRequires: xpm-devel
@@ -28,17 +27,15 @@ with this package are "Penguins", "Classic Penguins" and "Turtles".
 
 %prep
 %setup -q
-#patch0 -p0
 
 %build
 # Note: when we compile the program it needs to know where the 
 # data will be when finally installed.
-%configure2_5x
-%make
+%configure
+%make_build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%makeinstall_std
+%make_install
 mkdir -p  %buildroot{%{_datadir}/applications,%{_iconsdir},%{_miconsdir},%{_liconsdir}}
 cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
 [Desktop Entry]
@@ -62,9 +59,7 @@ EOF
 %dir %{_datadir}/%{name}/
 %{_datadir}/%{name}/themes
 %{_datadir}/applications/mandriva-%{name}.desktop
-#{_iconsdir}/%{name}.png
-#{_miconsdir}/%{name}.png
-#{_liconsdir}/%{name}.png
+%{_datadir}/pixmaps/xpenguins.xpm
 
 
 
