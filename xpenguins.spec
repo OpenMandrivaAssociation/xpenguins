@@ -59,6 +59,7 @@ EOF
 %dir %{_datadir}/%{name}/
 %{_datadir}/%{name}/themes
 %{_datadir}/applications/mandriva-%{name}.desktop
+%{_datadir}/applications/xpenguins.desktop
 %{_datadir}/pixmaps/xpenguins.xpm
 
 
