@@ -1,6 +1,6 @@
 Summary: Cute little penguins that walk along the tops of your windows
 Name: xpenguins
-Version: 3.2.0
+Version: 3.2.1
 Release: 1
 license: GPL
 Source0: https://sourceforge.net/projects/xpenguins/files/%{name}-%{version}.tar.gz
