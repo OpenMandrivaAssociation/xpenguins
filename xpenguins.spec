@@ -1,12 +1,12 @@
 Summary: Cute little penguins that walk along the tops of your windows
 Name: xpenguins
-Version: 3.2.1
+Version: 3.2.3
 Release: 1
 license: GPL
 Source0: https://sourceforge.net/projects/xpenguins/files/%{name}-%{version}.tar.gz
 
 Group: Toys
-URL: http://xpenguins.seul.org/
+URL: https://xpenguins.seul.org/
 BuildRequires: xpm-devel
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xext)
