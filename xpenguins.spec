@@ -7,6 +7,11 @@ Source0: https://sourceforge.net/projects/xpenguins/files/%{name}-%{version}.tar
 
 Group: Toys
 URL: https://xpenguins.seul.org/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: xpm-devel
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xext)
